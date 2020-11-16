@@ -22,7 +22,7 @@ jobs:
         java-version: 1.8
     - name: Build and test with Maven
       run: mvn -B package -Dgpg.signature.skip=true --file pom.xml
-    - name: SonarCloud Scan
+    - name: Sonar Scan
       run: mvn sonar:sonar -Dsonar.projectName=oauth1-signer-python -Dsonar.projectKey=Mastercard_client-encryption-java -Dsonar.organization=mastercard -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN -Dsonar.exclusions=**/*.xml -Dgpg.signature.skip=true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
